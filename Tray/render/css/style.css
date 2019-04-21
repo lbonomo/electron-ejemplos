@@ -1,0 +1,11 @@
+@import './fonts.css';
+@import './icons.css';
+@import './material.min.css';
+
+body {
+   color: grey;
+}
+
+.title {
+   text-align: center;
+}

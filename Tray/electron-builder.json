@@ -1,0 +1,6 @@
+{
+   "appId": "ar.com.vanguard.eTray",
+   "directories": {
+      "output": "release"
+   }
+}

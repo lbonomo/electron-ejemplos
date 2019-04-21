@@ -1,0 +1,16 @@
+{
+  "name": "eTray",
+  "version": "1.0.1",
+  "description": "Prueba de icon tray en Electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^4.1.4",
+    "electron-builder": "^20.39.0"
+  },
+  "author": "Lucas Bonomo",
+  "license": "ISC"
+}
