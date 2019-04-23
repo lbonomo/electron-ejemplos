@@ -3,7 +3,8 @@
 const { app, Menu, Tray, BrowserWindow } = require('electron')
 const path = require('path')
 
-// https://electronjs.org/docs/faq#my-apps-windowtray-disappeared-after-a-few-minutes
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let tray = null
 let about = null
 

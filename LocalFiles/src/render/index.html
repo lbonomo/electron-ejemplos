@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+  <title></title>
+  <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container mdl-grid">
+    <!-- Selector de archivo -->
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-grid">
+        <div class="file_input">
+          <label
+            id="label-file-input"
+            class="image_input_button mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
+            for="filename"
+            title="Seleccione un archivo de texto (.txt)">
+            <i class="material-icons">file_upload</i>
+            <input type="file" id="filename" name="filename" class="hidden"/>
+          </label>
+        </div>
+        <div class="mdl-layout-spacer"></div>
+
+        <div
+          id="file_input_text_div"
+          class="mdl-textfield mdl-js-textfield">
+          <input
+            class="file_input_text mdl-textfield__input"
+            type="text"
+            disabled
+            readOnly
+            id="filename_show"
+            value = ""/>
+          <label class="mdl-textfield__label" for="file_input_text"></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Textarea  -->
+    <div class="mdl-cell mdl-cell--12-col centre" id="div_text">
+      <div class="mdl-cell mdl-cell--12-col slim-row">
+        <p class="text-small">Contrl+Enter para grabar</p>
+      </div>
+      <textarea
+        id="text"
+        class="console"
+        name="console"
+        autocomplete
+        spellcheck="true"
+        disabled
+        rows="16"></textarea>
+      <div class="mdl-grid text-small">
+        <div class="mdl-cell mdl-cell--2-col slim-row">
+          <input type="checkbox" id="autosave-check" class="">
+          <label for="autosave-check">Auto guardar</label>
+        </div>
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-cell mdl-cell--6-col text-right slim-row">
+          <span>
+            Total de palabras: <span id="words">150</span>.
+            Guardado por ultima vez hace <span id="words">10</span> minutos.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boton grabar -->
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-grid">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-spinner mdl-js-spinner mdl-spinner--single-color" id="spinner"></div>
+        <button
+          disabled
+          id="save"
+          type="submit"
+          class="mdl-button mdl-js-button mdl-button--primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/render.js"></script>
+<script src="./js/material.min.js"></script>
+</html>
