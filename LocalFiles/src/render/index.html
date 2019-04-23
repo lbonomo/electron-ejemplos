@@ -42,7 +42,7 @@
     <!-- Textarea  -->
     <div class="mdl-cell mdl-cell--12-col centre" id="div_text">
       <div class="mdl-cell mdl-cell--12-col slim-row">
-        <p class="text-small">Contrl+Enter para grabar</p>
+        <p class="text-small">Ctrl + S para guardar</p>
       </div>
       <textarea
         id="text"
@@ -54,14 +54,14 @@
         rows="16"></textarea>
       <div class="mdl-grid text-small">
         <div class="mdl-cell mdl-cell--2-col slim-row">
-          <input type="checkbox" id="autosave-check" class="">
+          <input type="checkbox" id="autosave-check" disabled>
           <label for="autosave-check">Auto guardar</label>
         </div>
         <div class="mdl-layout-spacer"></div>
         <div class="mdl-cell mdl-cell--6-col text-right slim-row">
           <span>
-            Total de palabras: <span id="words">150</span>.
-            Guardado por ultima vez hace <span id="words">10</span> minutos.
+            <span id="show_words" class="hidden"> Total de palabras: <span id="words"></span>.</span>
+            <span id="show_lastsave" class="hidden">Desde hace <span id="lastsave"></span> existen modificaciones no guardadas.</span>
           </span>
         </div>
       </div>

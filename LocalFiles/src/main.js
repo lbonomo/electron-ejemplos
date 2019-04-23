@@ -83,7 +83,7 @@ ipcMain.on('select_file_main', (event) => {
 ipcMain.on('save_file', (event, data) => {
   fs.writeFile(filename, data, (err) => {
     if (err) throw err;
-    console.log(data)
+    // console.log(data)
     // Disparo la funcion "file_saved" en el render
     event.sender.send('file_saved')
   })
