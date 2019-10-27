@@ -69,6 +69,10 @@ setInterval(
 /* Selector de archivo */
 filename.addEventListener('click', (event) => {
   event.preventDefault();
+  // Reset textarea
+  text.disabled = true;
+  text.value = null;
+  show_words.textContent = 0;
   ipcRenderer.send('select_file_main');
 })
 

@@ -1,1 +1,9 @@
-abcd
+abcd le pongo
+Finalmente otras pralabras más
+y otra!
+Probando auto guardar
+
+Anda muy bien
+Solo es un poco molesto los mensajes
+Deberia ver si existen modificaciones antes de guardar al pedo
+

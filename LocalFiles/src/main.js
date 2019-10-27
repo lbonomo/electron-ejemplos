@@ -1,18 +1,13 @@
-import { app, BrowserWindow, dialog } from 'electron';
+const { app, BrowserWindow, dialog } =  require('electron');
 const { ipcMain } = require('electron');
+const path = require('path');
 const fs = require('fs');
 
-/* Variables */
-let filename = ''
-
-// Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
-  app.quit();
-}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let filename;
 
 const createWindow = () => {
   // Create the browser window.
@@ -68,16 +63,33 @@ app.on('activate', () => {
 // SelectFile
 ipcMain.on('select_file_main', (event) => {
   console.log("Seleccion del archivo");
-  // TODO - Que pasa si no selecciona ningun archivo?
-  filename = dialog.showOpenDialog({
-    filters: [{ name: 'Texto', extensions: ['txt'] }]
-  })[0];
 
-  event.sender.send('filename_show', filename);
-  fs.readFile(filename, (err, data) => {
-    if (err) throw err;
-    event.sender.send('file_name_render', data);
-  });
+  // Set default filename
+  filename =__dirname+'/note.txt';
+
+
+  // dialog.showOpenDialog
+  // dialog.showOpenDialogSync
+
+  dialog.showOpenDialog({
+    filters: [{ name: 'Texto', extensions: ['txt'] }]
+  }).then( (result) => {
+    filename = result.filePaths[0]
+    if (! result.canceled ) {
+      console.log(filename);
+      event.sender.send('filename_show', filename);
+      console.log();
+
+      fs.readFile(filename, (err, data) => {
+        if (err) throw err;
+        event.sender.send('file_name_render', data);
+      });
+    }
+  }).catch( err => console.log(err))
+
+
+
+
 });
 
 ipcMain.on('save_file', (event, data) => {
